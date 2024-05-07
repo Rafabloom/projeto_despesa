@@ -1,0 +1,294 @@
+/* ----- GERAL ----- */
+body {
+    background-color: #eaeaea;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #063703;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.container {
+    flex: 1;
+}
+
+select,
+option {
+    font-family: "Poetsen One", sans-serif;
+    color: #616161;
+}
+
+select option[value=""] {
+    color: #ff0000;
+}
+
+input {
+    font-family: "Poetsen One", sans-serif;
+}
+
+input::placeholder {
+    font-family: "Poetsen One", sans-serif;
+    color: #076c06 !important;
+}
+
+.form-control {
+    color: #076c06 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.form-control option:checked {
+    color: #000;
+}
+
+.select-black-text {
+    color: #000 !important;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    font-family: "Roboto Condensed", sans-serif;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.mensagem-tabela {
+    margin-top: 30px;
+    font-size: 1.4em;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.display-4 {
+    font-size: calc(1.1rem + 2.7vw) !important;
+    font-weight: bold;
+    line-height: 1.8;
+    font-family: "Poetsen One", sans-serif;
+    border-bottom: 2px solid #000;
+}
+
+::selection {
+    background-color: #000000;
+    color: #fff;
+}
+
+/* ----- BARRA DE NAVEGAÇÃO ----- */
+.navbar {
+    background-color: #7a7a7a !important;
+    box-shadow: 0 3px 5px rgba(0, 22, 0, 0.8);
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-weight: lighter;
+    font-family: "Poetsen One", sans-serif;
+}
+
+.navbar-nav .nav-item:not(.active) .nav-link {
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-item:not(.active) .nav-link:hover {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link.active-line {
+    position: relative;
+}
+
+.navbar-nav .nav-link.active-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background-color: #fff;
+    transition: width 0.3s;
+    display: none;
+}
+
+.navbar-nav .nav-link.active-line:hover::after {
+    width: 40%;
+}
+
+.navbar-toggler {
+    background-color: black;
+    border: 4px double rgb(255, 255, 255);
+}
+
+/* ----- TABELAS CONSULTA ------ */
+thead {
+    font-family: "Poetsen One", sans-serif;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-color-type: #000;
+    --bs-table-bg-type: #e8ffec;
+}
+
+.table-bordered {
+    border: 2px solid #888a8d;
+}
+
+.table-responsive::-webkit-scrollbar {
+    width: 12px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #134806 !important;
+    border-radius: 6px;
+}
+
+.scroll-message {
+    display: none;
+    background-color: #f8f9fa;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    font-family: "Poetsen One", sans-serif;
+    margin-bottom: 25px;
+}
+
+.scroll-message i {
+    font-size: 1.3em;
+}
+
+/* ----- SWEET ALERT CUSTOMS ----- */
+.custom-sweetalert-popup {
+    background-color: #ffffffe6;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.custom-btn-danger {
+    background-color: #ff0000 !important;
+    border: 2px solid #7f0505 !important;
+    transition: 0.2s;
+}
+
+.custom-btn-danger:hover {
+    background-color: #9f0707 !important;
+    border: 2px solid #420606 !important;
+    transition: 0.2s;
+}
+
+.custom-btn-success {
+    background-color: #28a745 !important;
+    border: 2px solid #218838 !important;
+    transition: 0.2s;
+}
+
+.custom-btn-success:hover {
+    background-color: #218838 !important;
+    border: 2px solid #0db434 !important;
+    transition: 0.2s;
+}
+
+.icon-large {
+    font-size: 55px;
+}
+
+/* ----- FOOTER ----- */
+.footer {
+    bottom: 0;
+    background-color: #7a7a7a;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    padding: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 55px;
+}
+
+.footer-consulta {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #7a7a7a;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    padding: 10px;
+    margin-top: 55px;
+}
+
+
+.footer .footer-edit,
+.footer-consulta .footer-edit {
+    max-width: 100%;
+    margin: 15px;
+    font-size: 1.3em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.footer-p {
+    margin: 15px;
+    color: #d0ffcd;
+    font-size: 0.5em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* ----- MEDIA QUERIES ----- */
+@media (min-width: 0px) and (max-width: 346px) {
+    .logo_tamanho {
+        width: 70%;
+        height: 70%;
+    }
+
+    .footer .footer-edit,
+    .footer-consulta .footer-edit {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 992px) {
+    .navbar-nav .nav-item:not(.active) .nav-link:hover {
+        background-color: #ffffff00;
+        color: rgba(14, 209, 63, 0.7);
+        border-radius: 50px;
+        transition: 0.3s;
+        font-weight: 400;
+    }
+}
+
+@media screen and (max-width: 451px) {
+    .scroll-message {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .nav-link.active-line::after {
+        display: block;
+    }
+}

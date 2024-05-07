@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento pessoal</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JavaScript e Dependências -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+  <!-- ESTILO CSS PERSONALIZADO -->
+  <link rel="stylesheet" href="estilo.css">
+
+  <!-- FONT AWESOME - ICONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- FONTE DA PÁGINA -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Poetsen+One&display=swap"
+    rel="stylesheet">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="Imagens/favicon.png" type="ico">
+
+  <!-- SCRIPT PERSONALIZADO -->
+  <script src="app.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img class="logo_tamanho" src="Imagens/logo.png" width="250" height="75" alt="Orçamento pessoal">
+      </a>
+
+      <div class="position-absolute top-50 end-0 me-3 translate-middle-y">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto my-2">
+          <li class="nav-item active">
+            <a class="nav-link active-line" href="index.html">Cadastro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="consulta.html">Consultar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col mb-5 mt-2">
+        <h1 class="display-4">Registro de nova despesa</h1>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-2 mt-2">
+        <select class="form-control" id="ano">
+          <option value="">Ano</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <select class="form-control" id="mes">
+          <option value="">Mês</option>
+          <option value="1">Janeiro</option>
+          <option value="2">Fevereiro</option>
+          <option value="3">Março</option>
+          <option value="4">Abril</option>
+          <option value="5">Maio</option>
+          <option value="6">Junho</option>
+          <option value="7">Julho</option>
+          <option value="8">Agosto</option>
+          <option value="9">Setembro</option>
+          <option value="10">Outubro</option>
+          <option value="11">Novembro</option>
+          <option value="12">Dezembro</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <input type="number" class="form-control" placeholder="Dia" id="dia" min="1" max="31">
+      </div>
+
+      <div class="col-md-6 mt-2">
+        <select class="form-control" id="tipo">
+          <option value="">Tipo</option>
+          <option value="1">Alimentação</option>
+          <option value="2">Educação</option>
+          <option value="3">Lazer</option>
+          <option value="4">Saúde</option>
+          <option value="5">Transporte</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 mt-2">
+        <input type="text" class="form-control" placeholder="Descrição" id="descricao">
+      </div>
+
+      <div class="col-md-2 mt-2">
+        <input type="text" class="form-control" placeholder="Valor (R$)" id="valor" oninput="formatarMoeda(this)">
+      </div>
+
+      <div class="col-md-2 d-flex justify-content-end mt-4">
+        <button type="button" class="btn btn-lg btn-dark" onclick="cadastrarDespesa()">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INICIO FOOTER (RODAPÉ) -->
+  <footer class="footer">
+    <div class="footer-edit">
+      Copyright &copy; 2024 - Desenvolvido por: Rafael Matos
+      <p class="footer-p">Projeto feito para fins de estudos</p>
+    </div>
+  </footer>
+  <!-- FIM FOOTER (RODAPÉ) -->
+
+  <script>
+    //Select/Option - Mudança de cores
+    var selects = document.querySelectorAll(".form-control");
+
+    selects.forEach(function (select) {
+      // Adiciona um evento para detectar quando uma opção é selecionada
+      select.addEventListener("change", function () {
+        // Adiciona a classe para definir a cor do texto como preta
+        select.classList.add("select-black-text");
+      });
+
+      select.addEventListener("blur", function () {
+        if (select.value === "") {
+          select.classList.remove("select-black-text");
+        }
+      });
+    });
+  </script>
+
+  <!-- SWEET ALERT -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</body>
+
+</html>
